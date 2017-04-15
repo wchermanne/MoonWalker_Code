@@ -27,7 +27,7 @@ cvs = (CtrlStruct*) malloc(sizeof(CtrlStruct));
   cvs->struct_calibration= (StructCalibration *) malloc(sizeof(StructCalibration));
     cvs->struct_website= (StructWebsite *) malloc(sizeof(StructWebsite));
   cvs->struct_actions =(StructActions *) malloc(sizeof(StructActions));
-
+    cvs->struct_sensors = (StructSensors *) malloc(sizeof(StructSensors));
 
 
 	cvs->inputs  = inputs;
@@ -45,7 +45,7 @@ cvs = (CtrlStruct*) malloc(sizeof(CtrlStruct));
   StructCalibration_init(cvs);
   Astar_init(cvs);
   StructActions_init(cvs);
-
+  StructSensors_init(cvs);
   StructWebsite_init(cvs);
 
 

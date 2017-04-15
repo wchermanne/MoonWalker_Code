@@ -53,7 +53,7 @@ cvs->struct_fsm->isDoneRotate1=0;
 cvs->struct_fsm->isDoneForward2=0;
 cvs->struct_fsm->isDoneForward3=0;
 
-cvs->struct_fsm->a=0;
+cvs->struct_fsm->isHomologation=0;
 
 
   for (int i = 0; i < NBR_TARGETS; i++)
@@ -232,6 +232,10 @@ void matchFSM(args* atab,CtrlStruct *cvs,MyVannes electrovannes,MyDynamixel dyna
         if((indexNextTarget==(BLUE_MID_FUSEE))||(indexNextTarget==(YELLOW_MID_FUSEE))||(indexNextTarget==(BLUE_DOWN_FUSEE))||(indexNextTarget==YELLOW_UP_FUSEE))
         {
         cvs->struct_fsm->robot_next_action=TAKE_MODULES;
+        if(cvs->struct_fsm->isHomologation==1)
+        {
+          cvs->struct_fsm->robot_next_action=HOMOLOGATION;
+        }
         }
 
         // CAS OU ON DOIT EJECTER UN MODULE
@@ -338,6 +342,7 @@ void matchFSM(args* atab,CtrlStruct *cvs,MyVannes electrovannes,MyDynamixel dyna
     case YELLOW_UP_FUSEE:
            printf(RED "indexNextTarget=YELLOW_UP_FUSEE\n");
     break;
+    //cvs->struct_fsm->robot_state =FOLLOW_PATH;
 
     case BLUE_BALLS:
            printf(RED "indexNextTarget=BLUE_BALLS\n");
@@ -374,7 +379,7 @@ void matchFSM(args* atab,CtrlStruct *cvs,MyVannes electrovannes,MyDynamixel dyna
     cvs->struct_fsm->robot_state =BEGINNING;
   }
 
-
+/*
   KpKi = Kp_Ki_Computation(0.05,0.01);
        printf("Kp calculated! \n");
   //////////////////// Controllers ////////////////////
@@ -412,7 +417,9 @@ void matchFSM(args* atab,CtrlStruct *cvs,MyVannes electrovannes,MyDynamixel dyna
 
   printf("Command of the right_wheel: %f\n",command[0]);
   printf("Command of the left_wheel: %f\n",command[1]);
+*/
 
+// Trying to replace this with the followPath() function!
 
   if(cvs->struct_control->isBlocked == 1) // We are blocked
   {
@@ -460,12 +467,21 @@ void matchFSM(args* atab,CtrlStruct *cvs,MyVannes electrovannes,MyDynamixel dyna
         //cvs->struct_fsm->robot_state =BEGINNING;
         if(cvs->struct_actions->ModulesTaken==0 &&  cvs->struct_fsm->time_arrived_target< TIME_OUT_TAKE_MODULES)
         {
-            takeModules(atab,4);
+            //takeModules(atab,4);
         }
         if(cvs->struct_actions->ModulesTaken==1 || cvs->inputs->t - cvs->struct_fsm->time_arrived_target> TIME_OUT_TAKE_MODULES) // Time out
         {
             cvs->struct_actions->ActionIsDone=1;
         }
+    break;
+
+    case HOMOLOGATION:
+        printf("I'm in the PERFORM_ACTION state and I must do TAKE_BALLS\n");
+        if(cvs->struct_actions->HomologationDone==0)
+        {
+            Homogation(atab);
+        }
+
     break;
 
     case TAKE_BALLS:

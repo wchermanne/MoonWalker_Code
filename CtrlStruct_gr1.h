@@ -14,6 +14,7 @@
 enum RobotState
 {
     BEGINNING,
+    CALIBRATION,
     MANOEUVER_START,
     GENERATE_PATH,
     SET_OBJECTIVE,
@@ -22,13 +23,16 @@ enum RobotState
     ISBLOCKED
 };
 
+
+
 enum RobotNextAction
 {
     NO_ACTION,
     TAKE_MODULES,
     TAKE_BALLS,
     EJECT_MODULES,
-    EJECT_BALLS
+    EJECT_BALLS,
+    HOMOLOGATION
 };
 
 enum RobotManoeuverState
@@ -52,8 +56,32 @@ enum ModuleState
     OPEN_GRIPPER_2,
     DYNA_ELEVATOR,
     FORWARD_MODULE,
-    DONE_MODULE
+    DONE_MODULE,
+    DYNA_ELEVATOR_DOWN,
+    ABORT_MODULE
 };
+
+enum HomologationState
+{
+    WAIT_HOMO,
+    GRIPPER_OUT_HOMO,
+    CLOSE_GRIPPER_HOMO,
+    BACKWARD_HOMO,
+    TURN_HOMO,
+    DROP_MODULE_HOMO
+};
+
+enum CalibrationState
+{
+    WAITCALIB,
+    CALIBRATEY,
+    FORWARD1,
+    ROTATE1,
+    CALIBRATEX,
+    FORWARD2,
+    DONE_CALIB
+};
+
 
 typedef struct StructTower
 {
@@ -144,6 +172,8 @@ double lowlevelKi;
   int emergencyStop;
   double Diffx;
   double Diffy;
+  double sum_error_angle_controller;
+  int isAngleControlled;
 }StructControl;
 
 
@@ -173,6 +203,7 @@ typedef struct StructFSM
   RobotNextAction robot_next_action;
 
   RobotManoeuverState start_manoeuver_state;
+  HomologationState homologation_state;
 
   Target **TargetArray;
 
@@ -210,7 +241,7 @@ int isDoneRotate1;
 int isDoneForward2;
 int isDoneForward3;
 
-int a;
+int isHomologation;
 } StructFSM;
 
 typedef struct StructCalibration
@@ -224,6 +255,7 @@ typedef struct StructCalibration
   int isDoneForward2;
   int isDoneRotate1;
   int isDoneRotate2;
+  CalibrationState calibrate_state;
 
 } StructCalibration;
 
@@ -239,7 +271,9 @@ typedef struct StructWebsite
 typedef struct StructActions
 {
     ModuleState take_modules_state;
+    ModuleState eject_modules_state;
     int nb_modules;
+    int nb_modules_ejected;
     int ActionIsDone;
     int ModulesTaken;
     int ModulesEjected;
@@ -250,7 +284,19 @@ typedef struct StructActions
     double time_dyna_elevator;
 
     double time_enter_state;
+    int HomologationDone;
 } StructActions;
+
+typedef struct StructSensors
+{
+    int left_uswitch;
+    int right_uswitch;
+    int gripper_uswitch;
+    int back_endway;
+    int front_endway;
+    int photo_chips;
+
+} StructSensors;
 
 /// Main controller structure
 typedef struct CtrlStruct
@@ -267,6 +313,7 @@ typedef struct CtrlStruct
   StructCalibration *struct_calibration;
   StructWebsite *struct_website;
   StructActions *struct_actions;
+  StructSensors *struct_sensors;
 
 
 } CtrlStruct;

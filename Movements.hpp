@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 void Manoeuver_Start(args *atab, CtrlStruct *cvs);
+void Rotate_to_angle(args *atab,CtrlStruct *cvs,double angle);
 
 
 #endif

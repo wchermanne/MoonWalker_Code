@@ -25,7 +25,6 @@ int main(int argc, char** argv) {
     MyDynamixel dynaTurnModules(0x06,nano);
     MyDynamixel dynaFrameBalls(0x08,nano);
     MySwitch uswitches(MyCAN,0x608);
-    MySwitch uswitches2(MyCAN,0x608);
     nano->reset();
     /////////// Initializations from Robotics     ///////////
     /////////// Initializations from Robotics     ///////////
@@ -45,6 +44,7 @@ int main(int argc, char** argv) {
     double xsiR[2];
 
     MyStruct = init_CtrlStruct(In,Out);
+    time_sleep(0.2);
     printf("MyStruct initialized\n");
     atab->motorR = motorsright;
     atab->motorL = motorsleft;
@@ -56,6 +56,7 @@ int main(int argc, char** argv) {
     atab->dynaTurnModules= dynaTurnModules;
     atab->electrovannes= electrovannes;
     atab->uswitches= uswitches;
+    atab->ts_can = 0;
     /////////////////// SOME INITIALIZATIONS OF SOME INPUTS ///////////////////
     /////////////////// SOME INITIALIZATIONS OF SOME INPUTS ///////////////////
     /////////////////// SOME INITIALIZATIONS OF SOME INPUTS ///////////////////
@@ -70,13 +71,14 @@ int main(int argc, char** argv) {
     /////////// Threads     ///////////
     /////////// Threads     ///////////
     /////////// Threads     ///////////
-    pthread_t threadMotorRight,threadMotorLeft, threadOdoRight, threadOdoLeft, threadPosCompute;
+    pthread_t threadMotorRight,threadMotorLeft, threadOdoRight, threadOdoLeft, threadPosCompute, threadForSensor;
     int retRight = pthread_create(&threadMotorRight, NULL, ThreadMotorR, (void*)atab);
     int retLeft = pthread_create(&threadMotorLeft, NULL, ThreadMotorL, (void*)atab);
     int retOdoRight = pthread_create(&threadOdoRight, NULL, ThreadOdoR, (void*)atab);
     int retOdoLeft = pthread_create(&threadOdoLeft, NULL, ThreadOdoL, (void*)atab);
     int retPosCompute = pthread_create(&threadPosCompute, NULL, ThreadComputePosition, (void*)atab);
-    if(retRight || retLeft || retOdoRight || retOdoLeft || retPosCompute)
+   // int retSensor = pthread_create(&threadForSensor, NULL, ThreadSensor, (void*)atab);
+    if(retRight || retLeft || retOdoRight || retOdoLeft || retPosCompute )
     {
         printf("failed in one/several thread creation\n");
     }
@@ -145,7 +147,8 @@ int main(int argc, char** argv) {
     {
                 error( const_cast<char *>( "ERROR connecting") );
     }
-    printf("ASTAR OK4\n");
+    printf("
+           ASTAR OK4\n");
 */
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -154,7 +157,11 @@ int main(int argc, char** argv) {
         //lowerElevator(dynaElevator);
         //dynaElevator.PrintRegisters();
         //upperElevator(dynaElevator);
-
+        dynaElevator.LedOn();
+       /* motorsright.initMotor();
+        motorsleft.initMotor();*/
+    //uswitches.blink();
+    //electrovannes.blink();
    while(1)
      {
          /////////////// Just to assign the time ////////////////
@@ -162,7 +169,7 @@ int main(int argc, char** argv) {
         diff=now-start;
         sec=(double) (diff)/(CLOCKS_PER_SEC);
         MyStruct->inputs->t=sec;
-        printf(GRN "t= %f\n" RESET,MyStruct->inputs->t);
+       // printf(GRN "t= %f\n" RESET,MyStruct->inputs->t);
          ////////////////////////////////////////////////////
 /*
 
@@ -220,14 +227,69 @@ int main(int argc, char** argv) {
     }
     else
     {
-        //matchFSM(atab,MyStruct,electrovannes,dynaElevator,dynaTurnModules);
-        //takeModules(atab,4);
+        //motorsleft.setBrake(false);
+        //motorsright.setBrake(false);
+        /*if(atab->ts_can==1)
+        {
+            motorsleft.setSpeed(22);
+            motorsright.setSpeed(22);
+            atab->ts_can=0;
+        }*/
+        uswitches.readSwitch(MyStruct);
+
+     //matchFSM(atab,MyStruct,electrovannes,dynaElevator,dynaTurnModules);
+/*unsigned char buf[4] = {0x00, 0x00, 0x00, 0x00};
+int photo_chips_previous;
+while(1)
+{
+        nano->readWriteReg(READ, 12, buf, 4);
+        atab->MyStruct->struct_sensors->photo_chips = (int) buf[3];
+        //printf("photo_chips in the while = %d \n", atab->MyStruct->struct_sensors->photo_chips);
+        photo_chips_previous = atab->MyStruct->struct_sensors->photo_chips;
+    upperElevator(dynaElevator);
+    while(atab->MyStruct->struct_sensors->photo_chips==photo_chips_previous)
+    {
+        nano->readWriteReg(READ, 12, buf, 4);
+        atab->MyStruct->struct_sensors->photo_chips = (int) buf[3];
+        //printf("photo_chips in the while = %d \n", atab->MyStruct->struct_sensors->photo_chips);
+
     }
-   // uswitches.blink();
+    stopElevator(dynaElevator);
+    printf("------------------------------end of the while-----------------------------------------");
+    time_sleep(3);
+    //atab->MyStruct->struct_sensors->photo_chips=0;
+
+}*/
+
+/*
+        while(1)
+        {
+              gripperIn(atab->electrovannes);
+            time_sleep(3);
+            closeGripper(atab->electrovannes);
+            time_sleep(2);
+            printf("pince closed = %d \n",atab->MyStruct->struct_sensors->gripper_uswitch);
+
+            openGripper(atab->electrovannes);
+            time_sleep(2);
+            printf("pince open = %d \n",atab->MyStruct->struct_sensors->gripper_uswitch);
+        }
+
+*/
+
+
+
+        //lowerElevator(dynaElevator);
+        //catchModules(atab,4);
+        //displayOdometry(MyStruct);
+
+    }
+
+    //uswitches.blink();
     //electrovannes.blink();
     //uswitches.readSwitch(1,1);
     //time_sleep(0.5);
-    uswitches.readSwitch(2,1);
+    //uswitches.readSwitch(MyStruct);
 
     /*uswitches.readSwitch(3,1);
     time_sleep(0.5);
@@ -418,4 +480,3 @@ printf("Pos Theta:%f\n",MyStruct->struct_odometry->theta_t);
 
     }
 }
-

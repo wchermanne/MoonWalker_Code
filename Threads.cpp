@@ -4,6 +4,27 @@
 static int ts;
 static int tsOdo;
 
+void * ThreadSensor(void *atab)
+{
+
+    args *In_pthread = (args*) atab;
+    In_pthread->uswitches.init();
+    while(1){
+
+            if(In_pthread->ts_can ==0){
+            In_pthread->uswitches.readSwitch(In_pthread->MyStruct);
+
+            printf(RED"Gripper Button %d \n"RESET,In_pthread->MyStruct->struct_sensors->gripper_uswitch);
+            printf(RED"Front Endway Button %d \n"RESET,In_pthread->MyStruct->struct_sensors->front_endway);
+            printf(RED"Back  Endway Button %d \n"RESET,In_pthread->MyStruct->struct_sensors->back_endway);
+            printf(RED"Left uswitch %d \n"RESET,In_pthread->MyStruct->struct_sensors->left_uswitch);
+            printf(RED"Right uswitch %d \n"RESET,In_pthread->MyStruct->struct_sensors->right_uswitch);
+            time_sleep(0.08);
+            In_pthread->ts_can =1;
+            }
+
+    }
+}
 
 void * ThreadMotorR(void *atab)
 {

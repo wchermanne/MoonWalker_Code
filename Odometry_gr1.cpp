@@ -7,7 +7,8 @@
 //
 
 #include "MyIncludes_gr1.h"
-
+#define BLUE 0
+#define YELLOW 1
 
 
 //NAMESPACE_INIT(ctrlGr1);
@@ -27,7 +28,7 @@ void StructOdometry_init(CtrlStruct *cvs)
 
     if(cvs->inputs->color==BLUE) // MAYBE ADAPT???
     {
-        cvs->struct_odometry->y_t = -620;
+        cvs->struct_odometry->y_t = 620;
     }
     else if(cvs->inputs->color==YELLOW)
     {

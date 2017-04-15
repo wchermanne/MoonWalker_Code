@@ -84,8 +84,99 @@ void Manoeuver_Start(args *atab, CtrlStruct *cvs)
   }
 }
 
+void Rotate_to_angle(args *atab,CtrlStruct *cvs,double angle)
+{
+  if(cvs->struct_odometry->theta_t-angle>7*PI/180)
+  {
+    printf("Rotate counterclock!\n");
+
+    atab->motorR.setSpeed(-15);
+    atab->motorL.setSpeed(15);
+
+  }
+  else if (cvs->struct_odometry->theta_t-angle<-7*PI/180)
+  {
+    printf("Rotate clock!\n");
+    atab->motorR.setSpeed(15);
+    atab->motorL.setSpeed(-15);
+  }
+  else
+  {
+    printf("No rotate!\n");
+    atab->motorR.setSpeed(0);
+    atab->motorL.setSpeed(0);
+    cvs->struct_fsm->isDoneRotate1=1;
+  }
+}
+
+void Rotate_relative(args *atab,CtrlStruct *cvs,double angle)
+{
+  double finalAngle = cvs->struct_odometry->theta_t + angle;
+
+  if(cvs->struct_odometry->theta_t-finalAngle>7*PI/180)
+  {
+    printf("Rotate counterclock!\n");
+
+    atab->motorR.setSpeed(-15);
+    atab->motorL.setSpeed(15);
+
+  }
+  else if (cvs->struct_odometry->theta_t-finalAngle<-7*PI/180)
+  {
+    printf("Rotate clock!\n");
+    atab->motorR.setSpeed(15);
+    atab->motorL.setSpeed(-15);
+  }
+  else
+  {
+    printf("No rotate!\n");
+    atab->motorR.setSpeed(0);
+    atab->motorL.setSpeed(0);
+    cvs->struct_fsm->isDoneRotate1=1;
+  }
+}
+
+
+
 void followPath(args* atab,CtrlStruct *cvs)
 {
 
-}
+    KpKi = Kp_Ki_Computation(0.05,0.01);
+         printf("Kp calculated! \n");
+    //////////////////// Controllers ////////////////////
+    FromHighToMiddleLevel(cvs,command);
+    if(command[0] > 500)
+    {
+      command[0] = 500;
+    }
+    else if (command[0] < -500)
+    {
+      command[0] = -500;
+    }
+    if(command[1] > 2)
+    {
+      command[1] = 2;
+      command[0] = 0;
+    }
+    else if (command[1] < -2)
+    {
+      command[1] = -2;
+      command[0] = 0;
+    }
+    if (command[1] > 1 || command[1] <-1)
+    {
+      cvs->struct_control->isRotating =1;
+    }
+    else
+    {
+      cvs->struct_control->isRotating =0;
+    }
+    MiddleLevelController(cvs,command[0]/1000,command[1],command);
+    LowLevelController(cvs,command, KpKi[0], KpKi[1],command);
+    atab->motorR.setSpeed(command[0]);
+    atab->motorL.setSpeed(command[1]);
 
+    printf("Command of the right_wheel: %f\n",command[0]);
+    printf("Command of the left_wheel: %f\n",command[1]);
+
+}

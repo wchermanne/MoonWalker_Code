@@ -24,7 +24,8 @@ public:
     void doDebug();
     void doSendMsg(int theIdentifier, char* theData, int theLength, char theFrameType);
     void doReceiveMsg();
-    int doReceiveMyMsg();
+    int doReceiveSwitch();
+    void doSendMyMsg(int theIdentifier, char* theData, int theLength, char theFrameType);
     void doHandleIRQ(int thePin);
 private:
     void writeCommand(char theCommand);

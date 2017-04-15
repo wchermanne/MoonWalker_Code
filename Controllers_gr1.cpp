@@ -76,6 +76,8 @@ cvs->struct_control->KpAngle=0;
 cvs->struct_control->Diffx=0;
 cvs->struct_control->Diffy=0;
 cvs->struct_control->emergencyStop=0;
+cvs->struct_control->sum_error_angle_controller = 0.0;
+cvs->struct_control->isAngleControlled = 0;
 
 
 }
@@ -112,13 +114,13 @@ void Position_controller(CtrlStruct *cvs,double errDist, double errAngle,double 
     }
 
     */
-    if(errDist < 800 && (errAngle)>120*PI/180)
+    if(errDist < 1500 && (errAngle)>120*PI/180)
     {
         errDist=-errDist;
         errAngle = errAngle-PI;
 
     }
-    else if(errDist < 800 && (errAngle)<-120*PI/180)
+    else if(errDist < 1500 && (errAngle)<-120*PI/180)
     {
         errDist=-errDist;
         errAngle = errAngle+PI;

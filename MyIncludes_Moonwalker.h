@@ -48,7 +48,7 @@
 #include "Dynamixel_Functions.h"
 #include "Threads.hpp"
 
-#include "uswitch.h"
+#include "Sensors.h"
 
 #include "Actions.hpp"
 #include "Movements.hpp"

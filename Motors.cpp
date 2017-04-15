@@ -74,7 +74,11 @@ void MyMotors::setSpeed(int speed){
 
     if(this_motor ==1)
     {
-    makeData(data,GPLAT+offset, mask_brake,0x00,0x00,true);// release brake
+    makeData(data,0x11+offset,0x01,0x00,0x00,true); // remove messages from motors
+    this_can->doSendMsg(this_address,data,3,0x00);
+    time_sleep(0.001);
+
+    makeData(data,GPLAT+offset, mask_brake, 0x00,0x00,true);// release brake
     this_can->doSendMsg(this_address,data,3,0x00);
     time_sleep(0.001);
 
@@ -93,7 +97,11 @@ void MyMotors::setSpeed(int speed){
     else if (this_motor == 2)
     {
     speed = -speed; // For MoonWalker only
-    makeData(data,GPLAT+offset, mask_brake2,0x00,0x00,true);// release brake
+    makeData(data,0x11+offset,0x01,0x00,0x00,true); // remove messages from motors
+    this_can->doSendMsg(this_address,data,3,0x00);
+    time_sleep(0.001);
+
+    makeData(data,GPLAT+offset, mask_brake2, 0x00,0x00,true);// release brake
     this_can->doSendMsg(this_address,data,3,0x00);
     time_sleep(0.001);
 

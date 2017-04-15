@@ -31,7 +31,7 @@
 #define MCP2515_TX_REMOTE_FRAME     0x01
 
 // CAN configuration registers
-
+#define MCP2515_GPLAT           0x02
 #define MCP2515_BFPCTRL         0x0C
 #define MCP2515_TXRTSCTRL       0x0D
 #define MCP2515_CANSTAT         0x0E
@@ -384,6 +384,35 @@ void MyMCP2515::doSendMsg(int theIdentifier, char* theData, int theLength, char 
     time_sleep(WAITING_TIME);
 }
 
+void MyMCP2515::doSendMyMsg(int theIdentifier, char* theData, int theLength, char theFrameType) {
+    this->writeReg( (char) MCP2515_TXB0SIDH, (theIdentifier >> 3));
+    //printf("the SIDH%d \n \n",(theIdentifier >> 3));
+    this->writeReg( (char) MCP2515_TXB0SIDL,  (0x00 <<5));// The 5 LSB = 0
+    //printf("the SIDH%d \n \n",(theIdentifier >> 3));
+    // Write the Data Length (4 LSB) and the RTR (Remote Transmission Request) bit
+    if (theFrameType == (char) MCP2515_TX_STD_FRAME) {
+        this->writeReg( (char) MCP2515_TXB0DLC, (theLength & 0x0f));// RTR = 0;
+    } else if (theFrameType == (char) MCP2515_TX_REMOTE_FRAME) {
+        this->writeReg( (char) MCP2515_TXB0DLC, (theLength | 0xf0));// RTR = 1;
+    } else {
+        cout << "Error : Illegal FrameType in DoSendMsg" << endl;
+    }
+
+    // Write the Data
+    int i = 0;
+    char x = (char) MCP2515_TXB0D0;
+    while (i < theLength) {
+    	this->writeReg(x, theData[i]);
+        x += 1;
+        i += 1;
+    }
+
+    // Send Message (TXREQ = 1) with highest priority (TXP = 11)
+    this->writeReg( (char) MCP2515_TXB0CTRL, 0x0f);
+    time_sleep(WAITING_TIME);
+}
+
+
 void MyMCP2515::doReceiveMsg() {
     char TheRxStatus = this->readCommand( (char) MCP2515_CMD_RXSTATUS);
 
@@ -416,14 +445,55 @@ void MyMCP2515::doReceiveMsg() {
         cout << "RXB1D4   = " << hex << this->readReg( (char) MCP2515_RXB1D5)<< endl;
         cout << "RXB1D5   = " << hex << this->readReg( (char) MCP2515_RXB1D6)<< endl;
         cout << "RXB1D6   = " << hex << this->readReg( (char) MCP2515_RXB1D4)<< endl;*/
-        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D0));
-        //printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D1));
-        //printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D2));
+        //printf("this message RXB0D0 :%d \n",this->readReg( (char) MCP2515_RXB0D0));
+        //printf("this message RXB1DA:%d \n",this->readReg( (char) MCP2515_RXB0D1));
+        /*printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D2));
+        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D3));
+        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D4));
+        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0DLC));
+        printf("this message :%d \n",this->readReg( (int) MCP2515_RXB0D5));
+        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D6));
+        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D7));*/
+        printf("this message B0DO :%d \n",this->readReg( (char) MCP2515_RXB0D0));
+        printf("this message B0D1 :%d \n",this->readReg( (char) MCP2515_RXB0D1));
+        printf("this message B0D2 :%d \n",this->readReg( (char) MCP2515_RXB0D2));
+        printf("this message B0D3 :%d \n",this->readReg( (char) MCP2515_RXB0D3));
+        printf("this message B0D4 :%d \n",this->readReg( (char) MCP2515_RXB0D4));
+        printf("this message B0D5 :%d \n",this->readReg( (char) MCP2515_RXB0D5));
+        printf("this message B0D6 :%d \n",this->readReg( (char) MCP2515_RXB0D6));
+        printf("this message B0D7 :%d \n",this->readReg( (char) MCP2515_RXB0D7));
+        printf("this message B1D0:%d \n",this->readReg( (char) MCP2515_TXB1D0));
+        printf("this message B1D1:%d \n",this->readReg( (char) MCP2515_RXB1D1));
+        printf("this message B1D2:%d \n",this->readReg( (char) MCP2515_RXB1D2));
+        printf("this message B1D3:%d \n",this->readReg( (char) MCP2515_RXB1D3));
+        printf("this message B1D4:%d \n",this->readReg( (char) MCP2515_RXB1D4));
+        printf("this message B1D5:%d \n",this->readReg( (char) MCP2515_RXB1D5));
+         printf("this message B1D6:%d \n",this->readReg( (char) MCP2515_RXB1D6));
+        printf("this message B1D7:%d \n",this->readReg( (char) MCP2515_RXB1D7));
+
         int temp1 = this->readReg( (int) MCP2515_RXB0SIDH);
         temp1 <<= 3;
         int temp2 = this->readReg( (int) MCP2515_RXB0SIDL);
         temp2 >>= 5;
         int temp3 = temp1 | temp2;
+        int myMessageFromCan;
+        if(temp3 == 0x602)
+        {
+            myMessageFromCan = this->readReg( (int ) MCP2515_RXB0D0);
+            switch(myMessageFromCan)
+            {
+            case 2:
+                {
+                    printf("uswicth left is activated");
+                    break;
+                }
+            case 4:
+                {
+                    printf("uswicth right is activated");
+                    break;
+                }
+            }
+        }
         cout << "Identif  = " << hex << temp3;
 
         if ((TheRxStatus & 0x80) != 0) {       // Message in RXB1
@@ -433,32 +503,79 @@ void MyMCP2515::doReceiveMsg() {
         return;
     }
 }
+// TO ADD : OPTOREG2 => mask = 0x01; data = 0x00
+int MyMCP2515::doReceiveSwitch() {
 
-int MyMCP2515::doReceiveMyMsg() {
     char TheRxStatus = this->readCommand( (char) MCP2515_CMD_RXSTATUS);
-
+    int myMessage = 99;
     if ((TheRxStatus & 0xc0) == 0){
-        return;
+        return 97;
     }
 
     if ((TheRxStatus & 0x40) != 0) {         //Message in RXB0
-        cout << "Message in RXBO";
         int TheRxStatusTemp = TheRxStatus >> 3;
         int TheRxStatusTempTemp = TheRxStatusTemp & 0x07;
-        printf("this message :%d \n",this->readReg( (char) MCP2515_RXB0D0));
-
         int temp1 = this->readReg( (int) MCP2515_RXB0SIDH);
         temp1 <<= 3;
         int temp2 = this->readReg( (int) MCP2515_RXB0SIDL);
         temp2 >>= 5;
         int temp3 = temp1 | temp2;
-        cout << "Identif  = " << hex << temp3;
+        int myMessage = -1;
+        int myMessage2 = -1;
+        int myMessage3 = -1;
+        if(temp3 == 0x602) // ensure Message is received from interrupt / No RTR required here !!
+        {
+
+            myMessage = this->readReg( (char) MCP2515_RXB0D0);
+            myMessage2 = this->readReg( (char) MCP2515_RXB1D1);
+            myMessage3 = this->readReg( (char) MCP2515_RXB0D1);
+            if(myMessage ==2)
+            {
+                myMessage = 2;
+                if(this->readReg( (char) MCP2515_RXB1D1 ==134))
+                   {
+                       myMessage = 6;
+                   }
+            }
+            else  if(myMessage ==4)
+            {
+                myMessage = 4;
+                    if(this->readReg( (char) MCP2515_RXB1D1 ==134))
+                   {
+                       myMessage = 6;
+                   }
+            }
+              else  if(myMessage ==8)
+            {
+                myMessage = 8;
+            }
+              else  if(myMessage ==16)
+            {
+                myMessage = 16;
+            }
+              else  if(myMessage ==32)
+            {
+                myMessage = 32;
+            }
+            if(myMessage2 ==134)
+            {
+                 myMessage = 6;
+            }
+            if(myMessage3 ==134)
+            {
+                 myMessage = 6;
+            }
+            return myMessage;
+
+        }
 
 	}
+        return myMessage;
 
-        return this->readReg( (char) MCP2515_RXB0D0;
+
     }
-}
+
+
 
 void MyMCP2515::doHandleIRQ(int thePin) {
     char MyCANINTF = this->readReg( (char) MCP2515_CANINTF);

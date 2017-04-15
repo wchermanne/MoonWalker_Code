@@ -18,7 +18,6 @@ void StructActions_init(CtrlStruct *cvs);
 
 void funnyAction(MyVannes electrovannes);
 
-void takeModules(args *atab,int ModulesToTake);
 void lowerElevator(MyDynamixel dynaElevator);
 void ejectModules(args *atab, int ModulesToEject);
 void closeGripper(MyVannes electrovannes);
@@ -26,8 +25,11 @@ void openGripper(MyVannes electrovannes);
 void gripperOut(MyVannes electrovannes);
 void gripperIn(MyVannes electrovannes);
 void upperElevator(MyDynamixel dynaElevator);
+void stopElevator(MyDynamixel dynaElevator);
 void Stop_Everything(args* atab);
 
+void catchModules(args* atab,int modulesToCatch);
+void takeModules(args *atab,int ModulesToTake)
 
 
 

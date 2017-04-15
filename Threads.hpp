@@ -23,9 +23,10 @@ struct args {
     MyVannes electrovannes;
     MyTourelle tourelle;
     MySwitch uswitches;
+    int ts_can;
 };
 
-
+void * ThreadSensor(void *atab);
 void * ThreadMotorR(void *atab);
 void * ThreadMotorL(void *atab);
 void * ThreadOdoL(void *atab);
