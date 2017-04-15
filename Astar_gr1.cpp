@@ -53,7 +53,7 @@ void Astar_init(CtrlStruct *cvs) // Pour initialiser le Astar
   myAstar->length_path_only_turns=0;
   //myAstar->stringPath=0;
 
-
+    int a=0;
   cvs->struct_control->counterNode=0;
 
 
