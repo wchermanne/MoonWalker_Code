@@ -1,0 +1,1132 @@
+# depslib dependency file v1.0
+1490563888 source:/home/pi/Desktop/MoonWalker/Controllers_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1490557474 /home/pi/Desktop/MoonWalker/MyIncludes_gr1.h
+	"namespace_ctrl.h"
+	"Astar_gr1.hpp"
+	"Astar_struct_gr1.h"
+	"CtrlStruct_gr1.h"
+	<math.h>
+	<stdlib.h>
+	"UsefulFunctions_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"Odometry_gr1.hpp"
+
+1490531478 /home/pi/Desktop/MoonWalker/Astar_gr1.hpp
+	<stdio.h>
+	"namespace_ctrl.h"
+
+1490538297 /home/pi/Desktop/MoonWalker/Astar_struct_gr1.h
+	<stdio.h>
+	"ctrl_io.h"
+	<stdlib.h>
+
+1490552867 /home/pi/Desktop/MoonWalker/ctrl_io.h
+	<pthread.h>
+
+1490545941 /home/pi/Desktop/MoonWalker/CtrlStruct_gr1.h
+	"ctrl_io.h"
+	<stdlib.h>
+
+1490557583 /home/pi/Desktop/MoonWalker/UsefulFunctions_gr1.hpp
+	<stdio.h>
+
+1490531478 /home/pi/Desktop/MoonWalker/Obstacles_gr1.hpp
+	<stdio.h>
+	"namespace_ctrl.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/Controllers_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1490546329 /home/pi/Desktop/MoonWalker/Odometry_gr1.hpp
+	<stdio.h>
+	<stdio.h>
+
+1490571405 source:/home/pi/Desktop/MoonWalker/Electrovannes.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"Odometer.h"
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+	"Electrovannes.h"
+
+1490547941 /home/pi/Desktop/MoonWalker/Odometer.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/MyMCP2515.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+
+1490531478 /home/pi/Desktop/MoonWalker/MyDE0Nano.h
+	<pigpio.h>
+	"MyMCP2515.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/tourelle.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/globals.h
+
+1490548046 /home/pi/Desktop/MoonWalker/Motors.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490565315 /home/pi/Desktop/MoonWalker/Electrovannes.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker/globals.cpp
+	"globals.h"
+	<math.h>
+
+1490531478 source:/home/pi/Desktop/MoonWalker/GPIOClass.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	"GPIOClass.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/GPIOClass.h
+	<string>
+
+1490531478 source:/home/pi/Desktop/MoonWalker/initTourelle.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<pigpio.h>
+	<ctime>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"initTourelle.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/initTourelle.h
+
+1490531478 source:/home/pi/Desktop/MoonWalker/MyDE0Nano.cpp
+	"MyDE0Nano.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker/MyMCP2515.cpp
+	"MyMCP2515.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker/stop.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<pigpio.h>
+	<ctime>
+	<sys/time.h>
+	"MyMCP2515.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker/tourelle.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+
+1490555025 source:/home/pi/Desktop/MoonWalker/CtrlStruct_gr1.cc
+	"CtrlStruct_gr1.h"
+	"Odometry_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"Astar_gr1.hpp"
+	"FSM_gr1.hpp"
+
+1490531478 /home/pi/Desktop/MoonWalker/FSM_gr1.hpp
+	<stdio.h>
+
+1490547871 source:/home/pi/Desktop/MoonWalker/Motors.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+
+1490553031 source:/home/pi/Desktop/MoonWalker/Odometer.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"Odometer.h"
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+	<time.h>
+
+1490563532 source:/home/pi/Desktop/MoonWalker/Odometry_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1490570083 source:/home/pi/Desktop/MoonWalker/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	<unistd.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"Motors.h"
+	"Controllers_gr1.hpp"
+	"CtrlStruct_gr1.h"
+	"initTourelle.h"
+	"stop.h"
+	"globals.h"
+	"tourelle.h"
+	"ctrl_io.h"
+	"Wheels_gr1.hpp"
+	<pthread.h>
+	<time.h>
+	"Electrovannes.h"
+	"Odometer.h"
+
+1490531478 /home/pi/Desktop/MoonWalker/stop.h
+
+1490531478 /home/pi/Desktop/MoonWalker/Wheels_gr1.hpp
+	"CtrlStruct_gr1.h"
+	<stdio.h>
+
+1490557606 source:/home/pi/Desktop/MoonWalker/UsefulFunctions_gr1.cpp
+	"ctrl_main_gr1.h"
+	"UsefulFunctions_gr1.hpp"
+	"CtrlStruct_gr1.h"
+	<math.h>
+	<stdlib.h>
+
+1490557531 /home/pi/Desktop/MoonWalker/ctrl_main_gr1.h
+	"CtrlStruct_gr1.h"
+	<stdlib.h>
+
+1491530224 source:/home/pi/Desktop/MoonWalker_backup_astar/Controllers_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1490557474 /home/pi/Desktop/MoonWalker_backup_astar/MyIncludes_gr1.h
+	"namespace_ctrl.h"
+	"Astar_gr1.hpp"
+	"Astar_struct_gr1.h"
+	"CtrlStruct_gr1.h"
+	<math.h>
+	<stdlib.h>
+	"UsefulFunctions_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"Odometry_gr1.hpp"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/Astar_gr1.hpp
+	<stdio.h>
+	"namespace_ctrl.h"
+
+1490538297 /home/pi/Desktop/MoonWalker_backup_astar/Astar_struct_gr1.h
+	<stdio.h>
+	"ctrl_io.h"
+	<stdlib.h>
+
+1490552867 /home/pi/Desktop/MoonWalker_backup_astar/ctrl_io.h
+	<pthread.h>
+
+1491536212 /home/pi/Desktop/MoonWalker_backup_astar/CtrlStruct_gr1.h
+	"ctrl_io.h"
+	<stdlib.h>
+
+1490557583 /home/pi/Desktop/MoonWalker_backup_astar/UsefulFunctions_gr1.hpp
+	<stdio.h>
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/Controllers_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1490546329 /home/pi/Desktop/MoonWalker_backup_astar/Odometry_gr1.hpp
+	<stdio.h>
+	<stdio.h>
+
+1490555025 source:/home/pi/Desktop/MoonWalker_backup_astar/CtrlStruct_gr1.cc
+	"CtrlStruct_gr1.h"
+	"Odometry_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"Astar_gr1.hpp"
+	"FSM_gr1.hpp"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/FSM_gr1.hpp
+	<stdio.h>
+
+1490571405 source:/home/pi/Desktop/MoonWalker_backup_astar/Electrovannes.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"Odometer.h"
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+	"Electrovannes.h"
+
+1490547941 /home/pi/Desktop/MoonWalker_backup_astar/Odometer.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/MyMCP2515.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/MyDE0Nano.h
+	<pigpio.h>
+	"MyMCP2515.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/tourelle.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/globals.h
+
+1490548046 /home/pi/Desktop/MoonWalker_backup_astar/Motors.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490565315 /home/pi/Desktop/MoonWalker_backup_astar/Electrovannes.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/globals.cpp
+	"globals.h"
+	<math.h>
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/GPIOClass.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	"GPIOClass.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/GPIOClass.h
+	<string>
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/initTourelle.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<pigpio.h>
+	<ctime>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"initTourelle.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/initTourelle.h
+
+1491530531 source:/home/pi/Desktop/MoonWalker_backup_astar/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	<unistd.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"Motors.h"
+	"Controllers_gr1.hpp"
+	"CtrlStruct_gr1.h"
+	"initTourelle.h"
+	"stop.h"
+	"globals.h"
+	"tourelle.h"
+	"ctrl_io.h"
+	"Wheels_gr1.hpp"
+	<pthread.h>
+	<time.h>
+	"Electrovannes.h"
+	"Odometer.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/stop.h
+
+1490531478 /home/pi/Desktop/MoonWalker_backup_astar/Wheels_gr1.hpp
+	"CtrlStruct_gr1.h"
+	<stdio.h>
+
+1490547871 source:/home/pi/Desktop/MoonWalker_backup_astar/Motors.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/MyDE0Nano.cpp
+	"MyDE0Nano.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/MyMCP2515.cpp
+	"MyMCP2515.h"
+
+1490553031 source:/home/pi/Desktop/MoonWalker_backup_astar/Odometer.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"Odometer.h"
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+	"Motors.h"
+	<time.h>
+
+1491531061 source:/home/pi/Desktop/MoonWalker_backup_astar/Odometry_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/stop.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<pigpio.h>
+	<ctime>
+	<sys/time.h>
+	"MyMCP2515.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_backup_astar/tourelle.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<math.h>
+	<sys/time.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"tourelle.h"
+	"globals.h"
+
+1490557606 source:/home/pi/Desktop/MoonWalker_backup_astar/UsefulFunctions_gr1.cpp
+	"ctrl_main_gr1.h"
+	"UsefulFunctions_gr1.hpp"
+	"CtrlStruct_gr1.h"
+	<math.h>
+	<stdlib.h>
+
+1490557531 /home/pi/Desktop/MoonWalker_backup_astar/ctrl_main_gr1.h
+	"CtrlStruct_gr1.h"
+	<stdlib.h>
+
+1491865344 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/CtrlStruct_gr1.cc
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491956529 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/CtrlStruct_gr1.h
+	<stdlib.h>
+	"MyIncludes_gr1.h"
+	"Astar_struct_gr1.h"
+
+1491666719 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/ctrl_io.h
+	<pthread.h>
+
+1490546329 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Odometry_gr1.hpp
+	<stdio.h>
+	<stdio.h>
+
+1491845076 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Controllers_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491966646 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyIncludes_gr1.h
+	"CtrlStruct_gr1.h"
+	"Astar_gr1.hpp"
+	"Astar_struct_gr1.h"
+	"ctrl_main_gr1.h"
+	"ctrl_io.h"
+	"Calibration_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"ctrl_main_gr1.h"
+	"Keyboard_gr1.hpp"
+	"FSM_gr1.hpp"
+	"UsefulFunctions_gr1.hpp"
+	"Obstacles_gr1.hpp"
+	"Odometry_gr1.hpp"
+	"Tower_gr1.hpp"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+
+1490557531 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/ctrl_main_gr1.h
+	"CtrlStruct_gr1.h"
+	<stdlib.h>
+
+1491783487 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Astar_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491861028 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Astar_struct_gr1.h
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"ctrl_io.h"
+	<stdlib.h>
+
+1491870108 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Calibration_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	"Threads.hpp"
+
+1491536545 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Keyboard_gr1.hpp
+	<stdio.h>
+	"ctrl_io.h"
+
+1491948955 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/FSM_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+
+1491845264 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/UsefulFunctions_gr1.hpp
+	"MyIncludes_gr1.h"
+	<stdio.h>
+
+1491261905 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Obstacles_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491261905 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Tower_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491941862 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Electrovannes.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1490547941 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Odometer.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyMCP2515.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+
+1491942480 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyDE0Nano.h
+	<pigpio.h>
+	"MyMCP2515.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/tourelle.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1491664333 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/globals.h
+
+1490548046 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Motors.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1491941862 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Electrovannes.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1491664011 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/globals.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1490531478 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/GPIOClass.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	"GPIOClass.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/GPIOClass.h
+	<string>
+
+1491650691 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/initTourelle.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/initTourelle.h
+
+1491942564 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Motors.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491942501 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyDE0Nano.cpp
+	"MyDE0Nano.h"
+
+1491971151 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyMCP2515.cpp
+	"MyMCP2515.h"
+
+1491942597 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Odometer.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491929780 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Odometry_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1491650733 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/stop.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491942637 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/tourelle.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491845253 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/UsefulFunctions_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1491966618 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Astar_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491929603 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Controllers_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491974382 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/FSM_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491985857 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/main.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1490531478 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/stop.h
+
+1491958339 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Calibration_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491849764 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Tower_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1491650743 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Threads.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491943617 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Threads.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	"Dynamixel_Functions.h"
+
+1491948855 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/MyIncludes_Moonwalker.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	<unistd.h>
+	<pthread.h>
+	<time.h>
+	<math.h>
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<netdb.h>
+	<string.h>
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<arpa/inet.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"Motors.h"
+	"GPIOClass.h"
+	"initTourelle.h"
+	"stop.h"
+	"globals.h"
+	"tourelle.h"
+	"ctrl_io.h"
+	"Electrovannes.h"
+	"Odometer.h"
+	"Website_interface.hpp"
+	"Client.hpp"
+	"Dynamixel_Functions.h"
+	"Threads.hpp"
+	"Actions.hpp"
+
+1491941862 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Dynamixel_Functions.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	"MyDE0Nano.h"
+	"misc.h"
+	"Dynamixel_Functions.h"
+	<iomanip>
+	"globals.h"
+	"math.h"
+	<string.h>
+
+1491942278 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/misc.h
+
+1491941862 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Dynamixel_Functions.h
+
+1491942272 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/misc.cpp
+	<cstdlib>
+	"misc.h"
+
+1491672098 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Demo_actions.hpp
+	<stdio.h>
+	<stdio.h>
+
+1491865763 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Website_interface.hpp
+	<stdio.h>
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	<stdio.h>
+
+1491842719 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Website_interface.cpp
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+
+1491770621 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/client.h
+	<stdio.h>
+
+1491770572 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/client.c
+	<stdio.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<netdb.h>
+	<string.h>
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<arpa/inet.h>
+
+1491771144 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Client.hpp
+
+1491789930 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Client.cpp
+	<stdio.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<netdb.h>
+	<string.h>
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<arpa/inet.h>
+	"Client.hpp"
+
+1491985523 source:/home/pi/Desktop/MoonWalker_new_mix_code_07_04/Actions.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491974415 /home/pi/Desktop/MoonWalker_new_mix_code_07_04/Actions.hpp
+	"MyIncludes_gr1.h"
+	<stdio.h>
+
+1492039460 source:/home/pi/Desktop/Final code homologation/Actions.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492015631 /home/pi/Desktop/Final code homologation/MyIncludes_Moonwalker.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	<unistd.h>
+	<pthread.h>
+	<time.h>
+	<math.h>
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<stdio.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<netdb.h>
+	<string.h>
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<arpa/inet.h>
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+	"Motors.h"
+	"GPIOClass.h"
+	"initTourelle.h"
+	"stop.h"
+	"globals.h"
+	"tourelle.h"
+	"ctrl_io.h"
+	"Electrovannes.h"
+	"Odometer.h"
+	"Website_interface.hpp"
+	"Client.hpp"
+	"Dynamixel_Functions.h"
+	"Threads.hpp"
+	"uswitch.h"
+	"Actions.hpp"
+	"Movements.hpp"
+
+1490531478 /home/pi/Desktop/Final code homologation/MyMCP2515.h
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+
+1491942480 /home/pi/Desktop/Final code homologation/MyDE0Nano.h
+	<pigpio.h>
+	"MyMCP2515.h"
+
+1490548046 /home/pi/Desktop/Final code homologation/Motors.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490531478 /home/pi/Desktop/Final code homologation/GPIOClass.h
+	<string>
+
+1490531478 /home/pi/Desktop/Final code homologation/initTourelle.h
+
+1490531478 /home/pi/Desktop/Final code homologation/stop.h
+
+1491664333 /home/pi/Desktop/Final code homologation/globals.h
+
+1492008155 /home/pi/Desktop/Final code homologation/tourelle.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1491666719 /home/pi/Desktop/Final code homologation/ctrl_io.h
+	<pthread.h>
+
+1491941862 /home/pi/Desktop/Final code homologation/Electrovannes.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1490547941 /home/pi/Desktop/Final code homologation/Odometer.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1491865763 /home/pi/Desktop/Final code homologation/Website_interface.hpp
+	<stdio.h>
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	<stdio.h>
+
+1492035665 /home/pi/Desktop/Final code homologation/MyIncludes_gr1.h
+	"CtrlStruct_gr1.h"
+	"Astar_gr1.hpp"
+	"Astar_struct_gr1.h"
+	"ctrl_main_gr1.h"
+	"ctrl_io.h"
+	"Calibration_gr1.hpp"
+	"Controllers_gr1.hpp"
+	"ctrl_main_gr1.h"
+	"Keyboard_gr1.hpp"
+	"FSM_gr1.hpp"
+	"UsefulFunctions_gr1.hpp"
+	"Obstacles_gr1.hpp"
+	"Odometry_gr1.hpp"
+	"Tower_gr1.hpp"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+
+1492034253 /home/pi/Desktop/Final code homologation/CtrlStruct_gr1.h
+	<stdlib.h>
+	"MyIncludes_gr1.h"
+	"Astar_struct_gr1.h"
+
+1491861028 /home/pi/Desktop/Final code homologation/Astar_struct_gr1.h
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"ctrl_io.h"
+	<stdlib.h>
+
+1491783487 /home/pi/Desktop/Final code homologation/Astar_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1490557531 /home/pi/Desktop/Final code homologation/ctrl_main_gr1.h
+	"CtrlStruct_gr1.h"
+	<stdlib.h>
+
+1491870108 /home/pi/Desktop/Final code homologation/Calibration_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	"Threads.hpp"
+
+1492008888 /home/pi/Desktop/Final code homologation/Threads.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	"Dynamixel_Functions.h"
+	"uswitch.h"
+
+1491941862 /home/pi/Desktop/Final code homologation/Dynamixel_Functions.h
+
+1491845076 /home/pi/Desktop/Final code homologation/Controllers_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491536545 /home/pi/Desktop/Final code homologation/Keyboard_gr1.hpp
+	<stdio.h>
+	"ctrl_io.h"
+
+1492015520 /home/pi/Desktop/Final code homologation/FSM_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+
+1491845264 /home/pi/Desktop/Final code homologation/UsefulFunctions_gr1.hpp
+	"MyIncludes_gr1.h"
+	<stdio.h>
+
+1491261905 /home/pi/Desktop/Final code homologation/Obstacles_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1490546329 /home/pi/Desktop/Final code homologation/Odometry_gr1.hpp
+	<stdio.h>
+	<stdio.h>
+
+1492008197 /home/pi/Desktop/Final code homologation/Tower_gr1.hpp
+	<stdio.h>
+	"MyIncludes_gr1.h"
+
+1491771144 /home/pi/Desktop/Final code homologation/Client.hpp
+
+1492029371 /home/pi/Desktop/Final code homologation/Actions.hpp
+	"MyIncludes_gr1.h"
+	<stdio.h>
+
+1492011140 source:/home/pi/Desktop/Final code homologation/Astar_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492015234 source:/home/pi/Desktop/Final code homologation/Calibration_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491789930 source:/home/pi/Desktop/Final code homologation/Client.cpp
+	<stdio.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<netdb.h>
+	<netdb.h>
+	<string.h>
+	<stdlib.h>
+	<unistd.h>
+	<errno.h>
+	<arpa/inet.h>
+	"Client.hpp"
+
+1491929603 source:/home/pi/Desktop/Final code homologation/Controllers_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492029248 source:/home/pi/Desktop/Final code homologation/CtrlStruct_gr1.cc
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491941862 source:/home/pi/Desktop/Final code homologation/Dynamixel_Functions.cpp
+	<stdio.h>
+	<stdlib.h>
+	<cstdlib>
+	<iostream>
+	<wiringPiSPI.h>
+	<pigpio.h>
+	<bitset>
+	<ctime>
+	<sys/time.h>
+	"MyDE0Nano.h"
+	"misc.h"
+	"Dynamixel_Functions.h"
+	<iomanip>
+	"globals.h"
+	"math.h"
+	<string.h>
+
+1491942278 /home/pi/Desktop/Final code homologation/misc.h
+
+1491941862 source:/home/pi/Desktop/Final code homologation/Electrovannes.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492029486 source:/home/pi/Desktop/Final code homologation/FSM_gr1.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491664011 source:/home/pi/Desktop/Final code homologation/globals.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1490531478 source:/home/pi/Desktop/Final code homologation/GPIOClass.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	"GPIOClass.h"
+
+1491650691 source:/home/pi/Desktop/Final code homologation/initTourelle.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491942272 source:/home/pi/Desktop/Final code homologation/misc.cpp
+	<cstdlib>
+	"misc.h"
+
+1491942564 source:/home/pi/Desktop/Final code homologation/Motors.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491942501 source:/home/pi/Desktop/Final code homologation/MyDE0Nano.cpp
+	"MyDE0Nano.h"
+
+1492052577 source:/home/pi/Desktop/Final code homologation/MyMCP2515.cpp
+	"MyMCP2515.h"
+
+1491942597 source:/home/pi/Desktop/Final code homologation/Odometer.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1491929780 source:/home/pi/Desktop/Final code homologation/Odometry_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1491650733 source:/home/pi/Desktop/Final code homologation/stop.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492007797 source:/home/pi/Desktop/Final code homologation/Threads.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492008402 source:/home/pi/Desktop/Final code homologation/tourelle.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492008176 source:/home/pi/Desktop/Final code homologation/Tower_gr1.cpp
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+
+1491845253 source:/home/pi/Desktop/Final code homologation/UsefulFunctions_gr1.cpp
+	"MyIncludes_gr1.h"
+
+1491842719 source:/home/pi/Desktop/Final code homologation/Website_interface.cpp
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+
+1492051474 source:/home/pi/Desktop/Final code homologation/main.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492050799 /home/pi/Desktop/Final code homologation/uswitch.h
+	"MyMCP2515.h"
+	"MyDE0Nano.h"
+
+1492051259 source:/home/pi/Desktop/Final code homologation/uswitch.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
+1492015515 /home/pi/Desktop/Final code homologation/Movements.hpp
+	"MyIncludes_gr1.h"
+	"MyIncludes_Moonwalker.h"
+	<stdio.h>
+
+1492015597 source:/home/pi/Desktop/Final code homologation/Movements.cpp
+	"MyIncludes_Moonwalker.h"
+	"MyIncludes_gr1.h"
+
