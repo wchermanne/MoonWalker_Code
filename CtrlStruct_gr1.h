@@ -82,6 +82,16 @@ enum CalibrationState
     DONE_CALIB
 };
 
+enum BallState
+{
+  WAITBALL,
+  LOWERBALL,
+  FORWARDBALL,
+  ROTATEBALL,
+  BACKBALL,
+  RISEBALL,
+  DONEBALL
+}
 
 typedef struct StructTower
 {
@@ -272,6 +282,7 @@ typedef struct StructActions
 {
     ModuleState take_modules_state;
     ModuleState eject_modules_state;
+    BallState ball_state;
     int nb_modules;
     int nb_modules_ejected;
     int ActionIsDone;
@@ -285,6 +296,9 @@ typedef struct StructActions
 
     double time_enter_state;
     int HomologationDone;
+    int isDoneForwardBall1;
+    int isDoneForwardBall2;
+    int isDoneRotateBall;
 } StructActions;
 
 typedef struct StructSensors

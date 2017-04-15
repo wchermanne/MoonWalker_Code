@@ -17,6 +17,9 @@ void StructActions_init(CtrlStruct *cvs)
     cvs->struct_actions->HomologationDone=0;
     cvs->struct_actions->eject_modules_state=WAITMODULE;
     cvs->struct_actions->nb_modules_ejected=0;
+    cvs->struct_actions->isDoneForwardBall1=0;
+    cvs->struct_actions->isDoneForwardBall2=0;
+    cvs->struct_actions->isDoneRotateBall=0;
 
 
 }
@@ -640,4 +643,77 @@ void Stop_Everything(args* atab)
     atab->motorL.setSpeed(0);
     // +Set dynamixel to 0
     // +Set allActuators to 0
+}
+
+void takeBalls(args *atab){
+  printf("Catching balls \n");
+  switch (atab->MyStruct->struct_actions->ball_state)
+  {
+    case WAITBALL:
+    printf("Ready to start balls action \n");
+    atab->MyStruct->struct_actions->ball_state=LOWERBALL;
+    break;
+
+    case LOWERBALL:
+    printf("Lowering the frame\n");
+    void relativeRotate(0x150, 90);
+    atab->MyStruct->struct_actions->ball_state=FORWARDBALL;
+    break;
+
+    case FORWARDBALL:
+    printf("Going forward with the balls\n");
+    while(atab->MyStruct->struct_actions->isDoneForwardBall1==0)
+    {
+      if(cvs->inputs->color == YELLOW)
+      {
+        Forward_distance(atab,cvs,isDoneForwardBall1,-466,600);
+      }
+      else if(cvs->inputs->color == BLUE)
+      {
+        Forward_distance(atab,cvs,isDoneForwardBall1,-466,-600);
+      }
+    }
+    atab->MyStruct->struct_actions->isDoneForwardBall1=0;
+    atab->MyStruct->struct_actions->ball_state=ROTATEBALL;
+    break;
+
+    case ROTATEBALL:
+    printf("Rotating with the balls\n");
+    Angle_controller(atab,cvs,0);
+    if(atab->MyStruct->struct_actions->isDoneRotate==1)
+    {
+      cvs->struct_calibration->calibrate_state =CALIBRATEX;
+      atab->MyStruct->struct_actions->isDoneRotate=0;
+    }
+    atab->MyStruct->struct_actions->ball_state=BACKBALL;
+    break;
+
+    case BACKBALL:
+    printf("Backpedalling with the balls\n");
+    while(atab->MyStruct->struct_actions->isDoneForwardBall2==0)
+    {
+      if(cvs->inputs->color == YELLOW)
+      {
+        Forward_distance(atab,cvs,isDoneForwardBall2,-800,600);
+      }
+      else if(cvs->inputs->color == BLUE)
+      {
+        Forward_distance(atab,cvs,isDoneForwardBall2,-800,-600);
+      }
+    }
+    atab->MyStruct->struct_actions->isDoneForwardBall2=0;
+    cvs->struct_actions->isDoneRotate=0;
+    atab->MyStruct->struct_actions->ball_state=RISEBALL;
+    break;
+
+    case RISEBALL:
+    printf("Rising the frame\n");
+    void relativeRotate(0x150,0);
+    atab->MyStruct->struct_actions->ball_state=DONEBALL;
+    break;
+
+    case DONEBALL:
+    printf("Done with the balls\n");
+    break;
+  }
 }

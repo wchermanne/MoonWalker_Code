@@ -29,7 +29,8 @@ void stopElevator(MyDynamixel dynaElevator);
 void Stop_Everything(args* atab);
 
 void catchModules(args* atab,int modulesToCatch);
-void takeModules(args *atab,int ModulesToTake)
+void takeModules(args *atab,int ModulesToTake);
+void takeBalls(args *atab);
 
 
 
