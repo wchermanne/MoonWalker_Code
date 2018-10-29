@@ -31,6 +31,7 @@ MySwitch::~MySwitch()
 void MySwitch::setLed(bool activate){
     this_can->doInit();
     time_sleep(0.1);
+    int a=0;
     if(activate)
     {
         makeData(data,GPLAT+offset,mask_led_switch,mask_led_switch,0x00,true);
